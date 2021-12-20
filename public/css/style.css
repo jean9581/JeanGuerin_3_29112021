@@ -1,0 +1,18 @@
+.logo {
+  width: 100%;
+}
+.logo .logo__img {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.block01 {
+  width: 100%;
+  background-color: #d6d6d6;
+}
+.block01 .lieu {
+  width: 100%;
+  background-color: #bdbdbd;
+}
+
+/*# sourceMappingURL=style.css.map */

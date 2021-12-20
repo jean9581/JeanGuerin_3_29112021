@@ -1,0 +1,22 @@
+{
+  "name": "jeanguerin_3_29112021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jean9581/JeanGuerin_3_29112021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jean9581/JeanGuerin_3_29112021/issues"
+  },
+  "homepage": "https://github.com/jean9581/JeanGuerin_3_29112021#readme",
+  "dependencies": {
+    "postcss": "^8.4.5"
+  }
+}

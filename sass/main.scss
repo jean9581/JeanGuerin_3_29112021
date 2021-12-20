@@ -1,0 +1,18 @@
+@import "./Utils/variables";
+@import "./Utils/fonction";
+
+.logo {
+    width: 100%;
+    .logo__img{
+        width: 50%;
+        margin-left: 25%;
+    }
+}
+.block01 {
+    width: 100%;
+    background-color: $colour-font;
+    .lieu {
+        width: 100%;
+        background-color: darken($colour-font,10%);
+    }
+}
