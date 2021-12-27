@@ -1,18 +1,67 @@
 @import "./Utils/variables";
 @import "./Utils/fonction";
 
+/*général */
+*
+{
+    list-style: none;
+}
+body
+{
+    font-family: Raleway;
+}
+
 .logo {
     width: 100%;
-    .logo__img{
+    &__img{
         width: 50%;
-        margin-left: 25%;
+        margin: 2% 25%;
     }
 }
-.block01 {
+.header {
     width: 100%;
     background-color: $colour-font;
-    .lieu {
+    &__lieu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
+        height: 3em;
         background-color: darken($colour-font,10%);
+        box-shadow: 0em -0.1em 0em darken($colour-font,30%);
+        &__button {
+            margin-left: 1em;
+            border: none;
+            background-color: darken($colour-font,10%);
+        }
     }
+    &__text{
+        &__part1{
+            padding: 1em 2em 0em 2em;
+            font-weight: bolder;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        &__part2{
+            padding: 0em 2em 0em 2em;
+            color: $colour-text;
+            font-size: 1.2em;
+            text-align: center;
+        }  
+    }
+    &__button{
+        padding: 1em 2em 2em 2em;
+        text-align: center;
+        
+        &__text{
+            background-color: $colour-button;
+            color: lighten($colour-text,80%);
+            font-size: 1em; 
+            border: none;
+            border-radius: 2em 2em 2em 2em;
+            height: 3em;
+            width: 60%;
+            box-shadow: 0em 0.2em 0.2em 0em darken($colour-font,10%);
+        }
+    } 
 }
