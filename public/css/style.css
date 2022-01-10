@@ -4,6 +4,89 @@
   list-style: none;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fondu 4s linear;
+  background: #eeeeee;
+  opacity: 0;
+  z-index: 0;
+}
+.loader__icon {
+  width: 4em;
+  height: 4em;
+  display: inline-block;
+  position: relative;
+}
+.loader__icon:after {
+  content: "";
+  position: absolute;
+  width: 4em;
+  height: 4em;
+  top: -1em;
+  bottom: -1em;
+  left: -1em;
+  right: -1em;
+  border-radius: 100%;
+  border: 1em solid #eeeeee;
+  border-top-color: #4acbab;
+  border-bottom-color: #4acbab;
+  animation: chargement 1.5s linear infinite;
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 42px #99E2D0, 0 0 77px #99E2D0, 0 0 100px #99E2D0;
+  /*animation: lumiére 1s linear infinite;*/
+}
+
+@keyframes chargement {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fondu {
+  0% {
+    opacity: 0.9;
+    z-index: 2000;
+  }
+  80% {
+    opacity: 0.9;
+    z-index: 2000;
+  }
+  100% {
+    opacity: 0;
+    z-index: 2000;
+  }
+}
+/*
+@keyframes lumiere {
+    0%{
+        box-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 42px $colour-tertiary,
+        0 0 77px $colour-tertiary,
+        0 0 100px $colour-tertiary;
+    }
+   50%{
+        box-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 32px $colour-tertiary,
+        0 0 87px $colour-tertiary,
+        0 0 120px $colour-tertiary;
+    }
+}*/
 .logo {
   width: 100%;
 }
@@ -13,8 +96,10 @@
 }
 
 .header {
+  position: absolute;
   width: 100%;
   background-color: #eeeeee;
+  z-index: 1000;
 }
 .header__lieu {
   display: flex;
@@ -37,14 +122,14 @@
   font-weight: bolder;
   font-size: 1.5em;
   text-align: center;
-  font-family: "Roboto:400", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .header__text__part2 {
   padding: 0em 1em 0em 1em;
   color: #535353;
   font-size: 1.2em;
   text-align: center;
-  font-family: "Roboto:300", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .header__button {
   padding: 1em 2em 2em 2em;
@@ -59,14 +144,25 @@
   height: 3em;
   width: 70%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
-  font-family: "Roboto:400", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+.header__button__text:hover {
+  opacity: 0.8;
+  box-shadow: 0em 0.3em 0.3em 0em #a2a2a2;
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: 300ms;
 }
 
+.div__fonctionnement {
+  position: relative;
+  top: 40vh;
+}
 .div__fonctionnement__title {
   font-weight: bolder;
   font-size: 1.5em;
   margin-left: 2%;
-  font-family: "Roboto:400", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .fonctionnement {
@@ -90,7 +186,7 @@
   color: #535353;
   font-size: 1.2em;
   text-align: center;
-  font-family: "Roboto:300", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .fonctionnement__restaurant__icon {
   margin-left: -0.7em;
@@ -106,6 +202,8 @@
 }
 
 .restaurant {
+  position: relative;
+  top: 40vh;
   background-color: #eeeeee;
   width: 100%;
   padding-bottom: 4em;
@@ -114,7 +212,7 @@
   font-weight: bolder;
   font-size: 1.5em;
   padding: 10% 2% 0% 5%;
-  font-family: "Roboto:400", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .restaurant__div {
   width: 90%;
@@ -150,11 +248,33 @@
 .restaurant__div__text__name {
   color: black;
 }
+.restaurant__div__heart input[type=checkbox]:checked ~ .checked {
+  display: inline-block;
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(#9356DC, #FF79DA);
+}
+.restaurant__div__heart input[type=checkbox]:checked ~ .unchecked {
+  display: none;
+}
+.restaurant__div__heart input[type=checkbox], .restaurant__div .checked {
+  display: none;
+}
 .restaurant__div__heart {
   color: black;
 }
+.restaurant__div__heart__checked {
+  font-size: 100%;
+  display: none;
+}
+.restaurant__div:hover {
+  box-shadow: 0em 0.3em 0.3em 0em #a2a2a2;
+  transform: scale(1.01);
+  transition: 300ms;
+}
 
 .footer {
+  position: relative;
   width: 100%;
   background-color: #222222;
 }
@@ -162,13 +282,17 @@
   margin-left: 5%;
   padding: 10% 0% 5% 0%;
   color: white;
-  font-family: "Roboto:300", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .footer__div__title {
   margin-top: -1em;
   font-size: 1.2em;
   font-family: "Shrikhand", cursive;
   color: white;
+}
+
+.footer_acceuil {
+  top: 40vh;
 }
 
 /*Page menu*/
@@ -266,7 +390,14 @@
   height: 3em;
   width: 40%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
-  font-family: "Roboto:400", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+.palette__button__text:hover {
+  opacity: 0.8;
+  box-shadow: 0em 0.3em 0.3em 0em #a2a2a2;
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: 300ms;
 }
 
 /*Page enchantee*/
@@ -321,19 +452,84 @@
   width: 95%;
   background-color: white;
   border-radius: 1em 1em 1em 1em;
-  height: 4em;
+  /*height: 4em;*/
   margin: 0% 0% 2.5% 2.5%;
   box-shadow: 0em 0.2em 0.6em 0.2em #d5d5d5;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+  animation: menu_item 3s linear;
+  animation-fill-mode: both;
+}
+.enchantee__div__entree:nth-child(1) {
+  animation-delay: 100ms;
+}
+.enchantee__div__entree:nth-child(2) {
+  animation-delay: 200ms;
+}
+.enchantee__div__entree:nth-child(3) {
+  animation-delay: 300ms;
+}
+.enchantee__div__entree:nth-child(4) {
+  animation-delay: 400ms;
 }
 .enchantee__div__entree__text {
-  margin: 0% 3% 0% 2%;
+  margin-left: 3%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  font-size: 1.05em;
+}
+.enchantee__div__entree__text__font {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.enchantee__div__entree__text input[type=checkbox] {
+  display: none;
+}
+.enchantee__div__entree__text input[type=checkbox]:checked ~ .enchantee__div__entree__text__prix {
+  translate: -65%;
 }
 .enchantee__div__entree__text__prix {
   display: flex;
-  justify-content: space-between;
+  left: 20%;
+  width: 30%;
   align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+}
+.enchantee__div__entree__text__prix__check {
+  position: relative;
+  background: #99E2D0;
+  width: 65%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.enchantee__div__entree__text__prix__check__icon {
+  position: relative;
+  border-radius: 1em;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: white;
+  color: #99E2D0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.enchantee__div__entree:hover .enchantee__div__entree__text__prix {
+  translate: -65%;
+  transition: 500ms;
+}
+.enchantee__div__entree:hover .enchantee__div__entree__text__prix__check__icon {
+  transform: rotate(1turn);
+  transition: 500ms;
 }
 .enchantee__button {
   padding: 2em 2em 2em 2em;
@@ -348,9 +544,24 @@
   height: 3em;
   width: 40%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
-  font-family: "Roboto:400", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+.enchantee__button__text:hover {
+  opacity: 0.8;
+  box-shadow: 0em 0.3em 0.3em 0em #a2a2a2;
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: 300ms;
 }
 
+@keyframes menu_item {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /*Page delice*/
 .delice {
   width: 100%;
@@ -430,7 +641,14 @@
   height: 3em;
   width: 40%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
-  font-family: "Roboto:400", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+.delice__button__text:hover {
+  opacity: 0.8;
+  box-shadow: 0em 0.3em 0.3em 0em #a2a2a2;
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: 300ms;
 }
 
 /*Page francaise*/
@@ -512,7 +730,14 @@
   height: 3em;
   width: 40%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
-  font-family: "Roboto:400", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+.francaise__button__text:hover {
+  opacity: 0.8;
+  box-shadow: 0em 0.3em 0.3em 0em #a2a2a2;
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: 300ms;
 }
 
 /*# sourceMappingURL=style.css.map */
