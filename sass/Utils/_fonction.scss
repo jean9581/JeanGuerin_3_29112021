@@ -1,0 +1,4 @@
+@function delay-animation($nb) {
+    $resultat: $nb * $i;
+    @return $resultat;
+}

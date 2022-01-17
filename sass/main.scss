@@ -1,5 +1,6 @@
 @import "./Utils/variables";
 @import "./Utils/fonction";
+@import "./Utils/mixin.scss";
 
 /*général */
 *
@@ -7,49 +8,44 @@
     list-style: none;
 }
 body{
-    display: flex;
+    @include flex-colum;
     justify-content: center;
-    flex-direction: column;
+    
+    margin: 0px;
 }
 .loader{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fondu 4s linear;
+    position: fixed;
+    @include display-center;
+    animation: fondu 3s linear;
     background:  $colour-font;
     opacity: 0;
     z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
     &__icon{
         width: 4em;
         height: 4em;
+        border: 0.2em solid black;
+        border-radius: 50%;
         display: inline-block;
         position: relative;
-    }
-    
-    &__icon:after{
-        content: "";
-        position:absolute ;
-        width: 4em;
-        height: 4em;
-        top: -1em;
-        bottom: -1em;
-        left: -1em;
-        right: -1em;
-        border-radius: 100%;
-        border: 1em solid $colour-font;
-        border-top-color: darken($colour-tertiary,20%);
-        border-bottom-color : darken($colour-tertiary,20%);
         animation: chargement 1.5s linear infinite;
-        box-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 42px $colour-tertiary,
-        0 0 77px $colour-tertiary,
-        0 0 100px $colour-tertiary;
-        /*animation: lumiére 1s linear infinite;*/
+    }
+    &__icon:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50% , -50%);
+      width:  3em + 0.9em;
+      height:  3em + 0.9em;
+      border-radius: 50%;
+      border: 1em solid ;
+      border-color: $colour-secondary transparent;
     }
 }
 @keyframes chargement {
@@ -74,25 +70,7 @@ body{
         z-index: 2000;
     }
 }
-/*
-@keyframes lumiere {
-    0%{
-        box-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 42px $colour-tertiary,
-        0 0 77px $colour-tertiary,
-        0 0 100px $colour-tertiary;
-    }
-   50%{
-        box-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 32px $colour-tertiary,
-        0 0 87px $colour-tertiary,
-        0 0 120px $colour-tertiary;
-    }
-}*/
+
 .logo {
     width: 100%;
     &__img{
@@ -102,13 +80,12 @@ body{
 }
 .header {
     position: absolute;
+    left: 0;
     width: 100%;
     background-color: $colour-font;
     z-index: 1000;
     &__lieu{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include display-center;
         width: 100%;
         height: 3em;
         background-color: darken($colour-font,10%);
@@ -150,14 +127,10 @@ body{
             border-radius: 2em 2em 2em 2em;
             height: 3em;
             width: 70%;
-            box-shadow: 0em 0.2em 0.2em 0em darken($colour-font,10%);
+            @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
             &:hover{
-                opacity:0.8;
-                box-shadow: 0em 0.3em 0.3em 0em darken($colour-font,30%); 
-                cursor: pointer;
-                transform: scale(1.01);
-                transition:300ms;
+                @include button-hover;
             }
         }
     }
@@ -165,7 +138,7 @@ body{
 
 .div__fonctionnement{
     position: relative;
-    top: 40vh;
+    top: 45vh;
     &__title{
         font-weight: bolder;
         font-size: 1.5em;
@@ -174,25 +147,34 @@ body{
     }
 }
 .fonctionnement{
-    display: flex;
-    flex-direction: column;
+    @include flex-colum;
     align-items: center;
+    
     &__restaurant{
         border-radius: 1em 1em 1em 1em;
         background-color: $colour-font;
-        box-shadow: 0em 0.2em 0.6em 0.2em darken($colour-font,10%);
+        @include box-shadow_restaurant_menu;
         height: 4em;
         width: 90%;
-        display: flex;
-        justify-content: start;
-        align-items: center;
+        @include flex-start-center;
         margin-bottom: 8%;
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}){
+                color: $colour-text;
+            }
+        }
+        &:hover{
+            @include restaurant-hover;
+            background-color: lighten($colour-primary,30%);
+            color: $colour-primary;
+        }
         &__text{
             padding: 0em 1em 0em 1.5em;
-            color: $colour-text;
+            color: black;
             font-size: 1.2em;
             text-align: center;
             font-family: 'Roboto', sans-serif;
+            
         }
         &__icon{
             margin-left: -0.7em;
@@ -202,33 +184,53 @@ body{
             width: 1.5em;
             background-color: $colour-primary;
             color: lighten($colour-text,80%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include display-center;
         }
     }
+    
 }
 
-.restaurant {
-    position: relative;
-    top: 40vh;
-    background-color: $colour-font;
+.section{
+    background-color: $colour-font; 
     width: 100%;
     padding-bottom: 4em;
-    &__title{
+    position: relative;
+    top: 48vh;
+   &.h2{
+        margin-bottom: 2em;
         font-weight: bolder;
         font-size: 1.5em;
         padding: 10% 2% 0% 5%;
         font-family: 'Roboto', sans-serif;
-    }
-    &__div{
+   }
+   &__menu{
+       display: flex;
+       flex-wrap: wrap;
+       &__carte{
         width: 90%;
         background-color: lighten($colour-text,80%);
         border-radius: 1em 1em 1em 1em;
         height: 15em;
         margin: 0% 0% 5% 5%;
-        box-shadow: 0em 0.2em 0.6em 0.2em darken($colour-font,10%);
+        @include box-shadow_button;
         text-decoration: none;
+        &__img-1{background-image:url("../images/assets/menu-1.jpg");}
+            
+       }
+   }
+
+}
+/*
+.restaurant {
+    position: relative;
+    top: 48vh;
+    
+    
+    &__title{
+    }
+    &__div{
+        
+        
         &__img{
             width: 100%;
             border-radius: 1em 1em  0 0;
@@ -246,12 +248,12 @@ body{
         &__text{
             width: 85%;
             margin-left: 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /* haut | droit | bas | gauche margin: 0% 10% 0% 10%;*/
+            @include display-spbetween-center;
             &__name{
                 color: black;
+                font-size: 1.2em;
+                margin-top: 0.4em;
+                margin-bottom: 0.4em;
             }
         }
         &__heart input[type="checkbox"]:checked ~ .checked
@@ -271,21 +273,27 @@ body{
         }
         &__heart{
             color: black;
-            &__checked{font-size: 100%;
+            font-size: 1.3em;
+            cursor: pointer;
+            &__checked{
                 display: none;
             }
         }
         &:hover{
-            box-shadow: 0em 0.3em 0.3em 0em darken($colour-font,30%);
-            transform: scale(1.01);
-            transition:300ms;
+            @include restaurant-hover;
         }
     }
 }
-
+.new::before{
+    content: "Nouveau";
+    position: fixed;
+    height: 2em;
+    width: 3em;
+    background-color:$colour-tertiary ;
+}
+*/
 .footer{
     position: relative;
-    
     width: 100%;
     background-color: darken($colour-font,80%);
     &__div{
@@ -293,6 +301,10 @@ body{
         padding: 10% 0% 5% 0%;
         color: lighten($colour-text,80%); 
         font-family: 'Roboto', sans-serif;
+        &__text{
+            text-decoration: none;
+            color: lighten($colour-text,80%);
+        }
         &__title {
             margin-top: -1em;
             font-size: 1.2em;
@@ -303,18 +315,17 @@ body{
     
 }
 .footer_acceuil{
-    top: 40vh;
+    top: 45vh;
 }
 
  /*Page menu*/
 .logo__menu{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include display-spbetween-center;
     &__icon{
         font-size: 1.5em;
         color: black;
+        margin-left: 0.5em;
     }
     &__img{
         width: 50%;
@@ -346,9 +357,7 @@ body{
     &__restaurant{
         width: 85%;
         margin-left: 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include display-spbetween-center;
         &__title{
             margin-top: 0.8em;
             font-size: 2em;
@@ -377,15 +386,20 @@ body{
             border-radius: 1em 1em 1em 1em;
             height: 4em;
             margin: 0% 0% 2.5% 2.5%;
-            box-shadow: 0em 0.2em 0.6em 0.2em darken($colour-font,10%);
-            display: flex;
-            flex-direction: column;
+            @include box-shadow_restaurant_menu;
+            @include flex-colum;
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}){
+                    animation-delay: $i * 100ms;
+                    /*animation-delay: delay-animation(100)+ms;*/
+                }
+            }
+            animation: menu_item 0.5s linear;
+            animation-fill-mode: both;
             &__text{
                 margin: 0% 3% 0% 2%;
                 &__prix{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: flex-end;
+                    @include flex-end-between;
                 }
             }
         }
@@ -402,14 +416,10 @@ body{
             border-radius: 2em 2em 2em 2em;
             height: 3em;
             width: 40%;
-            box-shadow: 0em 0.2em 0.2em 0em darken($colour-font,10%);
+            @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
             &:hover{
-                opacity:0.8;
-                box-shadow: 0em 0.3em 0.3em 0em darken($colour-font,30%); 
-                cursor: pointer;
-                transform: scale(1.01);
-                transition:300ms;
+                @include button-hover;
             }
         }
     } 
@@ -438,19 +448,41 @@ body{
     &__restaurant{
         width: 85%;
         margin-left: 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include display-spbetween-center;
         &__title{
             margin-top: 0.8em;
             font-size: 2em;
             font-family: 'Shrikhand', cursive;
-            &__icon{
-                font-size: 2em;
-                color:$colour-text; 
+        }
+        &__icon{
+            font-size: 2em;
+            color:$colour-text; 
+            &.checked{
+                display: none;
             }
         }
+        &__icon input[type="checkbox"]:checked ~ .checked
+        {
+            display: inline-block;
+            color:transparent;
+            background-clip: text;
+            background-image: $colour-heart;
+        }
+        &__icon input[type="checkbox"]:checked ~ .unchecked
+        {
+            display: none;
+        }
+        &__icon input[type="checkbox"], .checked
+        {
+            display: none;
+        }
+        &__icon:hover{
+            cursor: pointer;
+        }
     }
+
+   
+
     &__div{
 
         &__title{
@@ -469,24 +501,25 @@ body{
             border-radius: 1em 1em 1em 1em;
             /*height: 4em;*/
             margin: 0% 0% 2.5% 2.5%;
-            box-shadow: 0em 0.2em 0.6em 0.2em darken($colour-font,10%);
+            @include box-shadow_restaurant_menu;
             display: flex;
             flex-direction: row;
             position: relative;
             overflow: hidden;
-            @for $i from 1 through 4 {
+            @for $i from 1 through 6 {
                 &:nth-child(#{$i}){
                     animation-delay: 100ms * $i;
                 }
             }
-            animation: menu_item 3s linear;
+            animation: menu_item 0.2s linear;
             animation-fill-mode: both;
+            &:hover{
+                cursor: pointer;
+            }
             &__text{
                 margin-left: 3%;
                 width: 100%;
-                display: flex;
-                align-items:center;
-                justify-content: space-between;
+                @include display-spbetween-center;
                 position: relative;
                 font-size: 1.05em;
                 &__font{
@@ -501,20 +534,17 @@ body{
                     translate: -65%; 
                 }
                 &__prix{
-                    display: flex;
+                    @include flex-end-between;
                     left: 20%;
                     width: 30%;
-                    align-items:flex-end;
-                    justify-content: space-between;
                     position: relative;
+                    transition:all 500ms;
                     &__check{
                         position: relative;
                         background: $colour-tertiary;
                         width: 65%;
                         height: 10vh;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
+                        @include display-center;
                         color: black; 
                         &__icon{
                             position: relative;
@@ -523,20 +553,20 @@ body{
                             width: 1.3em;
                             background-color: lighten($colour-text,80%);
                             color: $colour-tertiary;
-                            display: flex;
-                            align-items:center;
-                            justify-content: center;
+                            @include display-center;
                         }
                     }
                 }
             }
             &:hover .enchantee__div__entree__text__prix{
                 translate: -65%;
-                transition:500ms; 
+                transition:500ms;
+                cursor: pointer;
             }
             &:hover .enchantee__div__entree__text__prix__check__icon{
                 transform: rotate(1turn);
                 transition:500ms;
+                
             }
         }
     }
@@ -552,14 +582,10 @@ body{
             border-radius: 2em 2em 2em 2em;
             height: 3em;
             width: 40%;
-            box-shadow: 0em 0.2em 0.2em 0em darken($colour-font,10%);
+            @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
             &:hover{
-                opacity:0.8;
-                box-shadow: 0em 0.3em 0.3em 0em darken($colour-font,30%); 
-                cursor: pointer;
-                transform: scale(1.01);
-                transition:300ms;
+                @include button-hover;
             }
         }
     } 
@@ -567,10 +593,12 @@ body{
 
 @keyframes menu_item {
     0%{
-    transform: scale(0);
+    transform: translateY(50%);
+    opacity: 0;
     }
     100%{
-    transform: scale(1);
+    transform: translate(0);
+    opacity: 1;
     }
 }
 
@@ -598,9 +626,7 @@ body{
     &__restaurant{
         width: 85%;
         margin-left: 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include display-spbetween-center;
         &__title{
             margin-top: 0.8em;
             font-size: 2em;
@@ -629,15 +655,12 @@ body{
             border-radius: 1em 1em 1em 1em;
             height: 4em;
             margin: 0% 0% 2.5% 2.5%;
-            box-shadow: 0em 0.2em 0.6em 0.2em darken($colour-font,10%);
-            display: flex;
-            flex-direction: column;
+            @include box-shadow_restaurant_menu;
+            @include flex-colum;
             &__text{
                 margin: 0% 3% 0% 2%;
                 &__prix{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: flex-end;
+                    @include flex-end-between;
                 }
             }
         }
@@ -654,14 +677,10 @@ body{
             border-radius: 2em 2em 2em 2em;
             height: 3em;
             width: 40%;
-            box-shadow: 0em 0.2em 0.2em 0em darken($colour-font,10%);
+            @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
             &:hover{
-                opacity:0.8;
-                box-shadow: 0em 0.3em 0.3em 0em darken($colour-font,30%); 
-                cursor: pointer;
-                transform: scale(1.01);
-                transition:300ms;
+                @include button-hover;
             }
         }
     } 
@@ -691,9 +710,7 @@ body{
     &__restaurant{
         width: 85%;
         margin-left: 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include display-spbetween-center;
         &__title{
             margin-top: 0.8em;
             font-size: 2em;
@@ -722,15 +739,12 @@ body{
             border-radius: 1em 1em 1em 1em;
             height: 4em;
             margin: 0% 0% 2.5% 2.5%;
-            box-shadow: 0em 0.2em 0.6em 0.2em darken($colour-font,10%);
-            display: flex;
-            flex-direction: column;
+            @include box-shadow_restaurant_menu;
+            @include flex-colum;
             &__text{
                 margin: 0% 3% 0% 2%;
                 &__prix{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: flex-end;
+                    @include flex-end-between;
                 }
             }
         }
@@ -747,14 +761,10 @@ body{
             border-radius: 2em 2em 2em 2em;
             height: 3em;
             width: 40%;
-            box-shadow: 0em 0.2em 0.2em 0em darken($colour-font,10%);
+            @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
             &:hover{
-                opacity:0.8;
-                box-shadow: 0em 0.3em 0.3em 0em darken($colour-font,30%); 
-                cursor: pointer;
-                transform: scale(1.01);
-                transition:300ms;
+                @include button-hover;
             }
         }
     } 

@@ -17,7 +17,7 @@
 
   <body>
     <div class="loader">
-      <div class="loader__icon loader__icon__quart"></div>
+      <div class="loader__icon"></div>
     </div>
     <header>
       <div class="logo">
@@ -68,16 +68,46 @@
       </div>
     </div>
     <!-- restaurant -->
-    <div class="restaurant">
+    <section class="section">
+      <h2>Restaurants</h2>
+      <div class="section__menu">
+        <a href="palette.html" class="section__menu__carte new">
+          <div class="section__menu__carte__img section__menu__carte__img-1"></div>
+          <div class="section__menu__carte__text">
+            <h3>La palette du goût</h3>
+            <p>Ménilmontant</p>
+            <label class="section__menu__carte__text__heart">
+              <input type="checkbox">
+              <i class="far fa-heart unchecked"></i>
+              <i class="fas fa-heart checked"></i>
+            </label>
+          </div>
+        </a>
+        <a href="palette.html" class="section__menu__carte new">
+          <div class="section__menu__carte__img section__menu__carte__img-2"></div>
+          <div class="section__menu__carte__text"></div>
+        </a>
+        <a href="palette.html" class="section__menu__carte new">
+          <div class="section__menu__carte__img section__menu__carte__img-3"></div>
+          <div class="section__menu__carte__text"></div>
+        </a>
+        <a href="palette.html" class="section__menu__carte new">
+          <div class="section__menu__carte__img section__menu__carte__img-4"></div>
+          <div class="section__menu__carte__text"></div>
+        </a>
+      </div>
+      
+    </section>
+    <!--S
       <p class="restaurant__title">Restaurants</p>
-      <a href="palette.html" class="restaurant__div">
-        <div class="restaurant__div">
-          <div class="restaurant__div__img">
+      <div class="restaurant__div">
+        
+          
             <img class="restaurant__div__img__image"
                 src="./images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
                 alt="La palette du goût"/> 
           </div>
-          <div class="restaurant__div__text">
+          
             <p class="restaurant__div__text__name"><strong>La palette du goût</strong>
               <br />Ménilmontant
             </p>
@@ -87,9 +117,10 @@
               <i class="fas fa-heart checked"></i>
             </label>
           </div>
-        </div>
-      </a>
-      <a href="enchantee.html" class="restaurant__div">
+        </a>
+      </div>
+    <div class="restaurant">  
+      <a href="enchantee.html" class="restaurant__div new">
         <div class="restaurant__div">
           <div class="restaurant__div__img">
             <img class="restaurant__div__img__image"
@@ -150,14 +181,14 @@
         <h1 class="footer__div__title">ohmyfood</h1>
         <p class="footer__div__icon">
           <i class="fas fa-utensils"></i>
-          <i>Proposer un restaurant</i> 
+          Proposer un restaurant
         </p>
         <p class="footer__div__icon">
           <i class="fas fa-hands-helping"></i>
-          <i>Devenir partenaire</i>
+          Devenir partenaire
         </p>
-        <p class="footer__div__text"><i>Mentions légales</i><br><br><i>Contact</i>
-        </p>  
+        <p class="footer__div__text">Mentions légales</p>  
+        <p><a class="footer__div__text" href="mailto:nepoworg@gmail.com">Contact</a></p>
       </div>
     </footer>
   </body>
