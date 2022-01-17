@@ -30,7 +30,6 @@
 }
 @mixin restaurant-hover{
     box-shadow: 0em 0.4em 0.6em 0em darken($colour-font,20%);
-    transform: scale(1.01);
     transition:300ms;
     cursor: pointer;
     

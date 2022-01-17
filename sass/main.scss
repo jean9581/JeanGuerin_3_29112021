@@ -142,7 +142,7 @@ body{
     &__title{
         font-weight: bolder;
         font-size: 1.5em;
-        margin-left: 2%;
+        padding: 6% 0% 0% 5%;
         font-family: 'Roboto', sans-serif;
     }
 }
@@ -196,30 +196,96 @@ body{
     padding-bottom: 4em;
     position: relative;
     top: 48vh;
-   &.h2{
-        margin-bottom: 2em;
+    h2{
         font-weight: bolder;
         font-size: 1.5em;
-        padding: 10% 2% 0% 5%;
+        padding: 6% 0% 0% 5%;
         font-family: 'Roboto', sans-serif;
    }
    &__menu{
        display: flex;
        flex-wrap: wrap;
        &__carte{
-        width: 90%;
-        background-color: lighten($colour-text,80%);
-        border-radius: 1em 1em 1em 1em;
-        height: 15em;
-        margin: 0% 0% 5% 5%;
-        @include box-shadow_button;
-        text-decoration: none;
-        &__img-1{background-image:url("../images/assets/menu-1.jpg");}
-            
-       }
-   }
+            width: 90%;
+            background-color: lighten($colour-text,80%);
+            border-radius: 1em 1em 1em 1em;
+            height: 15em;
+            margin: 0% 0% 5% 5%;
+            @include box-shadow_button;
+            text-decoration: none;
+            overflow: hidden;
+            &__img {
+                background-size: cover;
+                height: 11em;
+                background-position: 0% 50%;
+                
+            }
+            @for $i from 1 through 4 {
+                &__img-#{$i}{
+                    background-image: url("../assets/menu-#{$i}.jpg")
 
+                }
+            }
+            &__text{
+                position: relative;
+                h3{
+                   margin: 0.5em 0em 0em 1em; 
+                   color:black ;
+                } 
+                p{
+                    margin: 0.1em 0em 0em 1em; 
+                    color:black ;
+                }
+                i{
+                    font-size: 1.2em;
+                    position: absolute;
+                    right: 1em;
+                    top: 25%;
+
+                }
+                &__heart input[type="checkbox"]:checked ~ .checked
+                {
+                    display: inline-block;
+                    color:transparent;
+                    background-clip: text;
+                    background-image: $colour-heart;
+                }
+                &__heart input[type="checkbox"]:checked ~ .unchecked
+                {
+                    display: none;
+                }
+                &__heart input[type="checkbox"], .checked
+                {
+                    display: none;
+                }
+                &__heart{
+                    color: black;
+                    font-size: 1.3em;
+                    cursor: pointer;
+                    &__checked{
+                        display: none;
+                    }
+                }
+            }
+            &:hover{
+                @include restaurant-hover;
+            }
+        }
+   }
 }
+.new::before{
+    content: "Nouveau";
+    position: absolute;
+    height: 2em;
+    width: 5em;
+    background-color:$colour-tertiary ;
+    color: darken($colour-tertiary,50%);
+    display: grid;
+    place-items:center;
+    right: 4em;
+    margin-top: 1em;
+}
+/* haut | droit | bas | gauche margin: 0% 10% 0% 10%;*/
 /*
 .restaurant {
     position: relative;
@@ -279,9 +345,7 @@ body{
                 display: none;
             }
         }
-        &:hover{
-            @include restaurant-hover;
-        }
+        
     }
 }
 .new::before{
