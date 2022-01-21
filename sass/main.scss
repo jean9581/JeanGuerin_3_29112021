@@ -304,8 +304,11 @@ body{
     color: darken($colour-tertiary,50%);
     display: grid;
     place-items:center;
-    right: 10%;
+    margin-left: 65%;
     margin-top: 1em;
+    @media screen and (min-width: 880px){
+        margin-left: 30%;
+    }
 }
 .footer{
     position: relative;
