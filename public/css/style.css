@@ -78,6 +78,12 @@ body {
   width: 50%;
   margin: 2% 25%;
 }
+@media screen and (min-width: 850px) {
+  .logo__img {
+    width: 20%;
+    margin: 1% 40%;
+  }
+}
 
 .header {
   position: absolute;
@@ -99,6 +105,11 @@ body {
 }
 .header__lieu__div {
   margin-left: 15%;
+}
+@media screen and (min-width: 850px) {
+  .header__lieu__div {
+    margin-left: 0%;
+  }
 }
 .header__lieu__div__button {
   margin-left: 1em;
@@ -166,6 +177,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
+@media screen and (min-width: 850px) {
+  .fonctionnement {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
 .fonctionnement__restaurant {
   border-radius: 1em 1em 1em 1em;
   background-color: #eeeeee;
@@ -185,6 +202,11 @@ body {
 }
 .fonctionnement__restaurant:nth-child(3) {
   color: #535353;
+}
+@media screen and (min-width: 850px) {
+  .fonctionnement__restaurant {
+    width: 25%;
+  }
 }
 .fonctionnement__restaurant:hover {
   box-shadow: 0em 0.4em 0.6em 0em #bbbbbb;
@@ -244,6 +266,11 @@ body {
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
   text-decoration: none;
   overflow: hidden;
+}
+@media screen and (min-width: 850px) {
+  .section__menu__carte {
+    width: 40%;
+  }
 }
 .section__menu__carte__img {
   background-size: cover;
@@ -325,6 +352,11 @@ body {
   color: white;
   font-family: "Roboto", sans-serif;
 }
+@media screen and (min-width: 850px) {
+  .footer__div {
+    padding: 5% 0% 0% 0%;
+  }
+}
 .footer__div__text {
   color: white;
 }
@@ -357,8 +389,14 @@ body {
   margin-left: 0.5em;
 }
 .logo__menu__img {
-  width: 50%;
-  margin: 2% 25% 2% 10%;
+  width: 40%;
+  margin: 2% 25%;
+}
+@media screen and (min-width: 850px) {
+  .logo__menu__img {
+    width: 50%;
+    margin: 1% 40%;
+  }
 }
 
 @keyframes menu_item {
@@ -378,6 +416,14 @@ body {
   background-color: #eeeeee;
   margin: -3em 0% 0% 0%;
   position: relative;
+}
+@media screen and (min-width: 850px) {
+  .palette {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
 .palette__img {
   width: 140%;
@@ -428,14 +474,19 @@ body {
 .palette__restaurant__icon:hover {
   cursor: pointer;
 }
+@media screen and (min-width: 850px) {
+  .palette__div {
+    margin: 4em 1em 0em 1em;
+  }
+}
 .palette__div__title {
   margin: 0% 0% 0% 4%;
 }
 .palette__div__title__deco {
   margin: 0% 0% 3% 4%;
   background-color: #99E2D0;
-  width: 2.5em;
-  height: 0.1em;
+  width: 2.5rem;
+  height: 0.1rem;
 }
 .palette__div__entree {
   width: 95%;
@@ -460,6 +511,11 @@ body {
 }
 .palette__div__entree:nth-child(5) {
   animation-delay: 1000ms;
+}
+@media screen and (min-width: 850px) {
+  .palette__div__entree {
+    width: 27em;
+  }
 }
 .palette__div__entree__text {
   margin-left: 3%;
@@ -514,6 +570,13 @@ body {
   padding: 2em 2em 2em 2em;
   text-align: center;
 }
+@media screen and (min-width: 850px) {
+  .palette__button {
+    display: flex;
+    align-items: center;
+    padding: 4em 20em 4em 20em;
+  }
+}
 .palette__button__text {
   background: linear-gradient(#FF79DA, #9356DC);
   color: white;
@@ -524,6 +587,11 @@ body {
   width: 40%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
   font-family: "Roboto", sans-serif;
+}
+@media screen and (min-width: 850px) {
+  .palette__button__text {
+    width: 20em;
+  }
 }
 .palette__button__text:hover {
   cursor: pointer;
@@ -598,8 +666,8 @@ body {
 .enchantee__div__title__deco {
   margin: 0% 0% 3% 4%;
   background-color: #99E2D0;
-  width: 2.5em;
-  height: 0.1em;
+  width: 2.5rem;
+  height: 0.1rem;
 }
 .enchantee__div__entree {
   width: 95%;
@@ -765,8 +833,8 @@ body {
 .delice__div__title__deco {
   margin: 0% 0% 3% 4%;
   background-color: #99E2D0;
-  width: 2.5em;
-  height: 0.1em;
+  width: 2.5rem;
+  height: 0.1rem;
 }
 .delice__div__entree {
   width: 95%;
@@ -930,8 +998,8 @@ body {
 .francaise__div__title__deco {
   margin: 0% 0% 3% 4%;
   background-color: #99E2D0;
-  width: 2.5em;
-  height: 0.1em;
+  width: 2.5rem;
+  height: 0.1rem;
 }
 .francaise__div__entree {
   width: 95%;

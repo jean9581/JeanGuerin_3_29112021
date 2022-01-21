@@ -76,6 +76,10 @@ body{
     &__img{
         width: 50%;
         margin: 2% 25%;
+        @media screen and (min-width: 850px){
+            width: 20%;
+            margin: 1% 40%; 
+        }
     }
 }
 .header {
@@ -94,6 +98,9 @@ body{
         -moz-box-shadow: 0px 40px 8px -36px rgba(105,105,105,0.75) inset;
         &__div{
             margin-left: 15%;
+            @media screen and (min-width: 850px){
+                margin-left: 0%; 
+            }
             &__button {
                 margin-left: 1em;
                 border: none;
@@ -158,7 +165,10 @@ body{
 .fonctionnement{
     @include flex-colum;
     align-items: center;
-    
+    @media screen and (min-width: 850px){
+        flex-direction:row ; 
+        justify-content: space-around;
+    }
     &__restaurant{
         border-radius: 1em 1em 1em 1em;
         background-color: $colour-font;
@@ -171,6 +181,9 @@ body{
             &:nth-child(#{$i}){
                 color: $colour-text;
             }
+        }
+        @media screen and (min-width: 850px){
+            width: 25%; 
         }
         &:hover{
             @include restaurant-hover;
@@ -215,9 +228,10 @@ body{
         font-family: 'Roboto', sans-serif;
     }
     &__menu{
-       display: flex;
-       flex-wrap: wrap;
-       &__carte{
+        display: flex;
+        flex-wrap: wrap;
+        
+        &__carte{
             width: 90%;
             background-color: lighten($colour-text,80%);
             border-radius: 1em 1em 1em 1em;
@@ -226,6 +240,9 @@ body{
             @include box-shadow_button;
             text-decoration: none;
             overflow: hidden;
+            @media screen and (min-width: 850px){
+                width: 40%;
+            }
             &__img {
                 background-size: cover;
                 height: 11em;
@@ -300,6 +317,9 @@ body{
         padding: 10% 0% 5% 0%;
         color: lighten($colour-text,80%); 
         font-family: 'Roboto', sans-serif;
+        @media screen and (min-width: 850px){
+            padding: 5% 0% 0% 0%;
+        }
         &__text{
             color: lighten($colour-text,80%);
         }
@@ -330,8 +350,12 @@ body{
         margin-left: 0.5em;
     }
     &__img{
-        width: 50%;
-        margin: 2% 25% 2% 10%;
+        width: 40%;
+        margin: 2% 25%;
+        @media screen and (min-width: 850px){
+            width: 50%;
+            margin: 1% 40% ;
+        }
     }
  }
  @keyframes menu_item {
@@ -352,6 +376,12 @@ body{
     background-color: $colour-font;
     margin: -3em 0% 0% 0%;
     position: relative;
+    @media screen and (min-width: 850px){
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
     &__img{
         width: 140%;
         overflow: hidden;
@@ -404,15 +434,17 @@ body{
         }
     }
     &__div{
-
+        @media screen and (min-width: 850px){
+            margin: 4em 1em 0em 1em;
+        }
         &__title{
             margin: 0% 0% 0% 4%;
         }
         &__title__deco{
             margin: 0% 0% 3% 4%;
             background-color: $colour-tertiary;
-            width: 2.5em;
-            height: 0.1em;
+            width: 2.5rem;
+            height: 0.1rem;
         }
         &__entree{
             width: 95%;
@@ -432,6 +464,9 @@ body{
             animation: menu_item 0.5s linear;
             animation-fill-mode: both;
             overflow: hidden;
+            @media screen and (min-width: 850px){
+                width: 27em;
+            }
             &__text{
                 margin-left: 3%;
                 height: 100%;
@@ -483,7 +518,11 @@ body{
     &__button{
         padding: 2em 2em 2em 2em;
         text-align: center;
-        
+        @media screen and (min-width: 850px){
+            display: flex;
+            align-items: center;
+            padding: 4em 20em 4em 20em;
+        }
         &__text{
             background: $colour-button;
             color: lighten($colour-text,80%);
@@ -494,6 +533,9 @@ body{
             width: 40%;
             @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
+            @media screen and (min-width: 850px){
+                width: 20em;
+            }
             &:hover{
                 @include button-hover;
             }
@@ -568,8 +610,8 @@ body{
         &__title__deco{
             margin: 0% 0% 3% 4%;
             background-color: $colour-tertiary;
-            width: 2.5em;
-            height: 0.1em;
+            width: 2.5rem;
+            height: 0.1rem;
         }
         &__entree{
             width: 95%;
@@ -729,8 +771,8 @@ body{
         &__title__deco{
             margin: 0% 0% 3% 4%;
             background-color: $colour-tertiary;
-            width: 2.5em;
-            height: 0.1em;
+            width: 2.5rem;
+            height: 0.1rem;
         }
         &__entree{
             width: 95%;
@@ -887,8 +929,8 @@ body{
         &__title__deco{
             margin: 0% 0% 3% 4%;
             background-color: $colour-tertiary;
-            width: 2.5em;
-            height: 0.1em;
+            width: 2.5rem;
+            height: 0.1rem;
         }
         &__entree{
             width: 95%;
