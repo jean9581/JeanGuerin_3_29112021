@@ -115,9 +115,7 @@ body {
   margin-left: 1em;
   border: none;
   background-color: #d5d5d5;
-}
-.header__lieu__div__button:focus {
-  border: none;
+  outline: none;
 }
 .header__text__part1 {
   padding: 1em 2em 0em 2em;
@@ -147,6 +145,7 @@ body {
   width: 70%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
   font-family: "Roboto", sans-serif;
+  transition: all 500ms;
 }
 .header__button__text:hover {
   cursor: pointer;
@@ -367,7 +366,7 @@ body {
 }
 .footer__div__title {
   margin-top: -1em;
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-family: "Shrikhand", cursive;
   color: white;
 }
@@ -592,6 +591,7 @@ body {
   width: 40%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
   font-family: "Roboto", sans-serif;
+  transition: all 500ms;
 }
 @media screen and (min-width: 850px) {
   .palette__button__text {
@@ -613,6 +613,14 @@ body {
   background-color: #eeeeee;
   margin: -3em 0% 0% 0%;
   position: relative;
+}
+@media screen and (min-width: 850px) {
+  .enchantee {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
 .enchantee__img {
   width: 140%;
@@ -637,14 +645,12 @@ body {
 }
 .enchantee__restaurant__title {
   margin-top: 0.8em;
-  font-size: 1.8em;
+  font-size: 1.6em;
   font-family: "Shrikhand", cursive;
 }
 .enchantee__restaurant__icon {
   font-size: 1.6em;
   color: #535353;
-  box-sizing: inherit;
-  scroll-behavior: smooth;
 }
 .enchantee__restaurant__icon.checked {
   display: none;
@@ -664,6 +670,11 @@ body {
 }
 .enchantee__restaurant__icon:hover {
   cursor: pointer;
+}
+@media screen and (min-width: 850px) {
+  .enchantee__div {
+    margin: 4em 1em 0em 1em;
+  }
 }
 .enchantee__div__title {
   margin: 0% 0% 0% 4%;
@@ -700,6 +711,11 @@ body {
 }
 .enchantee__div__entree:nth-child(6) {
   animation-delay: 1200ms;
+}
+@media screen and (min-width: 850px) {
+  .enchantee__div__entree {
+    width: 27em;
+  }
 }
 .enchantee__div__entree__text {
   margin-left: 3%;
@@ -754,6 +770,13 @@ body {
   padding: 2em 2em 2em 2em;
   text-align: center;
 }
+@media screen and (min-width: 850px) {
+  .enchantee__button {
+    display: flex;
+    align-items: center;
+    padding: 4em 20em 4em 20em;
+  }
+}
 .enchantee__button__text {
   background: linear-gradient(#FF79DA, #9356DC);
   color: white;
@@ -764,6 +787,12 @@ body {
   width: 40%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
   font-family: "Roboto", sans-serif;
+  transition: all 500ms;
+}
+@media screen and (min-width: 850px) {
+  .enchantee__button__text {
+    width: 20em;
+  }
 }
 .enchantee__button__text:hover {
   cursor: pointer;
@@ -780,6 +809,14 @@ body {
   background-color: #eeeeee;
   margin: -3em 0% 0% 0%;
   position: relative;
+}
+@media screen and (min-width: 850px) {
+  .delice {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
 .delice__img {
   width: 140%;
@@ -808,10 +845,8 @@ body {
   font-family: "Shrikhand", cursive;
 }
 .delice__restaurant__icon {
-  font-size: 2em;
+  font-size: 1.6em;
   color: #535353;
-  box-sizing: inherit;
-  scroll-behavior: smooth;
 }
 .delice__restaurant__icon.checked {
   display: none;
@@ -831,6 +866,11 @@ body {
 }
 .delice__restaurant__icon:hover {
   cursor: pointer;
+}
+@media screen and (min-width: 850px) {
+  .delice__div {
+    margin: 4em 1em 0em 1em;
+  }
 }
 .delice__div__title {
   margin: 0% 0% 0% 4%;
@@ -864,6 +904,11 @@ body {
 }
 .delice__div__entree:nth-child(5) {
   animation-delay: 1000ms;
+}
+@media screen and (min-width: 850px) {
+  .delice__div__entree {
+    width: 27em;
+  }
 }
 .delice__div__entree__text {
   margin-left: 3%;
@@ -918,6 +963,13 @@ body {
   padding: 2em 2em 2em 2em;
   text-align: center;
 }
+@media screen and (min-width: 850px) {
+  .delice__button {
+    display: flex;
+    align-items: center;
+    padding: 4em 20em 4em 20em;
+  }
+}
 .delice__button__text {
   background: linear-gradient(#FF79DA, #9356DC);
   color: white;
@@ -928,6 +980,12 @@ body {
   width: 40%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
   font-family: "Roboto", sans-serif;
+  transition: all 500ms;
+}
+@media screen and (min-width: 850px) {
+  .delice__button__text {
+    width: 20em;
+  }
 }
 .delice__button__text:hover {
   cursor: pointer;
@@ -944,6 +1002,14 @@ body {
   background-color: #eeeeee;
   margin: -3em 0% 0% 0%;
   position: relative;
+}
+@media screen and (min-width: 850px) {
+  .francaise {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
 .francaise__img {
   width: 140%;
@@ -974,8 +1040,6 @@ body {
 .francaise__restaurant__icon {
   font-size: 1.6em;
   color: #535353;
-  box-sizing: inherit;
-  scroll-behavior: smooth;
 }
 .francaise__restaurant__icon.checked {
   display: none;
@@ -986,7 +1050,6 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  flex-shrink: 0;
 }
 .francaise__restaurant__icon input[type=checkbox]:checked ~ .unchecked {
   display: none;
@@ -996,6 +1059,11 @@ body {
 }
 .francaise__restaurant__icon:hover {
   cursor: pointer;
+}
+@media screen and (min-width: 850px) {
+  .francaise__div {
+    margin: 4em 1em 0em 1em;
+  }
 }
 .francaise__div__title {
   margin: 0% 0% 0% 4%;
@@ -1029,6 +1097,11 @@ body {
 }
 .francaise__div__entree:nth-child(5) {
   animation-delay: 1000ms;
+}
+@media screen and (min-width: 850px) {
+  .francaise__div__entree {
+    width: 27em;
+  }
 }
 .francaise__div__entree__text {
   margin-left: 3%;
@@ -1083,6 +1156,13 @@ body {
   padding: 2em 2em 2em 2em;
   text-align: center;
 }
+@media screen and (min-width: 850px) {
+  .francaise__button {
+    display: flex;
+    align-items: center;
+    padding: 4em 20em 4em 20em;
+  }
+}
 .francaise__button__text {
   background: linear-gradient(#FF79DA, #9356DC);
   color: white;
@@ -1093,6 +1173,12 @@ body {
   width: 40%;
   box-shadow: 0em 0.2em 0.2em 0em #d5d5d5;
   font-family: "Roboto", sans-serif;
+  transition: all 500ms;
+}
+@media screen and (min-width: 850px) {
+  .francaise__button__text {
+    width: 20em;
+  }
 }
 .francaise__button__text:hover {
   cursor: pointer;

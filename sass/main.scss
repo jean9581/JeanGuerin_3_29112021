@@ -105,9 +105,11 @@ body{
                 margin-left: 1em;
                 border: none;
                 background-color: darken($colour-font,10%);
-                &:focus{
-                    border:none
-                }
+                outline: none;
+                //outline-color: transparent;
+                //&:focus-visible{
+                //    border:none
+                //}
             }
         }
     }
@@ -142,6 +144,7 @@ body{
             width: 70%;
             @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
+            transition: all 500ms;
             &:hover{
                 @include button-hover;
             }
@@ -328,7 +331,7 @@ body{
         }
         &__title {
             margin-top: -1em;
-            font-size: 1.2em;
+            font-size: 1.5em;
             font-family: 'Shrikhand', cursive;
             color: lighten($colour-text,80%); 
         }
@@ -371,8 +374,8 @@ body{
     opacity: 1;
     }
 }
- /*Page palette*/
- 
+
+/*Page palette*/ 
 .palette{
     width: 100%;
     border-radius: 2em 2em 0em 0em;
@@ -536,6 +539,7 @@ body{
             width: 40%;
             @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
+            transition: all 500ms;
             @media screen and (min-width: 850px){
                 width: 20em;
             }
@@ -552,6 +556,12 @@ body{
     background-color: $colour-font;
     margin: -3em 0% 0% 0%;
     position: relative;
+    @media screen and (min-width: 850px){
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
     &__img{
         width: 140%;
         overflow: hidden;
@@ -572,14 +582,12 @@ body{
         @include display-spbetween-center;
         &__title{
             margin-top: 0.8em;
-            font-size: 1.8em;
+            font-size: 1.6em;
             font-family: 'Shrikhand', cursive;
         }
         &__icon{
             font-size: 1.6em;
             color:$colour-text; 
-            box-sizing: inherit;
-            scroll-behavior: smooth;
             &.checked{
                 display: none;
             }
@@ -606,7 +614,9 @@ body{
         }
     }
     &__div{
-
+        @media screen and (min-width: 850px){
+            margin: 4em 1em 0em 1em;
+        }
         &__title{
             margin: 0% 0% 0% 4%;
         }
@@ -634,6 +644,9 @@ body{
             animation: menu_item 0.5s linear;
             animation-fill-mode: both;
             overflow: hidden;
+            @media screen and (min-width: 850px){
+                width: 27em;
+            }
             &__text{
                 margin-left: 3%;
                 height: 100%;
@@ -641,7 +654,6 @@ body{
                     cursor: pointer;
                 }
                 &__prix{
-                    //@include flex-end-between;
                     display: flex;
                     justify-content: center;
                     height: 100%;
@@ -686,7 +698,11 @@ body{
     &__button{
         padding: 2em 2em 2em 2em;
         text-align: center;
-        
+        @media screen and (min-width: 850px){
+            display: flex;
+            align-items: center;
+            padding: 4em 20em 4em 20em;
+        }
         &__text{
             background: $colour-button;
             color: lighten($colour-text,80%);
@@ -697,15 +713,16 @@ body{
             width: 40%;
             @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
+            transition: all 500ms;
+            @media screen and (min-width: 850px){
+                width: 20em;
+            }
             &:hover{
                 @include button-hover;
             }
         }
     } 
 }
-
-
-
 /*Page delice*/
 .delice{
     width: 100%;
@@ -713,6 +730,12 @@ body{
     background-color: $colour-font;
     margin: -3em 0% 0% 0%;
     position: relative;
+    @media screen and (min-width: 850px){
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
     &__img{
         width: 140%;
         overflow: hidden;
@@ -737,10 +760,8 @@ body{
             font-family: 'Shrikhand', cursive;
         }
         &__icon{
-            font-size: 2em;
+            font-size: 1.6em;
             color:$colour-text; 
-            box-sizing: inherit;
-            scroll-behavior: smooth;
             &.checked{
                 display: none;
             }
@@ -767,7 +788,9 @@ body{
         }
     }
     &__div{
-
+        @media screen and (min-width: 850px){
+            margin: 4em 1em 0em 1em;
+        }
         &__title{
             margin: 0% 0% 0% 4%;
         }
@@ -795,6 +818,9 @@ body{
             animation: menu_item 0.5s linear;
             animation-fill-mode: both;
             overflow: hidden;
+            @media screen and (min-width: 850px){
+                width: 27em;
+            }
             &__text{
                 margin-left: 3%;
                 height: 100%;
@@ -846,7 +872,11 @@ body{
     &__button{
         padding: 2em 2em 2em 2em;
         text-align: center;
-        
+        @media screen and (min-width: 850px){
+            display: flex;
+            align-items: center;
+            padding: 4em 20em 4em 20em;
+        }
         &__text{
             background: $colour-button;
             color: lighten($colour-text,80%);
@@ -857,6 +887,10 @@ body{
             width: 40%;
             @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
+            transition: all 500ms;
+            @media screen and (min-width: 850px){
+                width: 20em;
+            }
             &:hover{
                 @include button-hover;
             }
@@ -870,6 +904,12 @@ body{
     background-color: $colour-font;
     margin: -3em 0% 0% 0%;
     position: relative;
+    @media screen and (min-width: 850px){
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
     &__img{
         width: 140%;
         overflow: hidden;
@@ -896,8 +936,6 @@ body{
         &__icon{
             font-size: 1.6em;
             color:$colour-text; 
-            box-sizing: inherit;
-            scroll-behavior: smooth;
             &.checked{
                 display: none;
             }
@@ -909,7 +947,6 @@ body{
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            flex-shrink: 0;
             
         }
         &__icon input[type="checkbox"]:checked ~ .unchecked
@@ -925,7 +962,9 @@ body{
         }
     }
     &__div{
-
+        @media screen and (min-width: 850px){
+            margin: 4em 1em 0em 1em;
+        }
         &__title{
             margin: 0% 0% 0% 4%;
         }
@@ -953,6 +992,9 @@ body{
             animation: menu_item 0.5s linear;
             animation-fill-mode: both;
             overflow: hidden;
+            @media screen and (min-width: 850px){
+                width: 27em;
+            }
             &__text{
                 margin-left: 3%;
                 height: 100%;
@@ -1004,7 +1046,11 @@ body{
     &__button{
         padding: 2em 2em 2em 2em;
         text-align: center;
-        
+        @media screen and (min-width: 850px){
+            display: flex;
+            align-items: center;
+            padding: 4em 20em 4em 20em;
+        }
         &__text{
             background: $colour-button;
             color: lighten($colour-text,80%);
@@ -1015,6 +1061,10 @@ body{
             width: 40%;
             @include box-shadow_button;
             font-family: 'Roboto', sans-serif;
+            transition: all 500ms;
+            @media screen and (min-width: 850px){
+                width: 20em;
+            }
             &:hover{
                 @include button-hover;
             }
