@@ -430,11 +430,10 @@ body {
   }
 }
 .palette__img {
-  width: 140%;
+  width: 100%;
   overflow: hidden;
   position: relative;
   height: 18em;
-  right: 4em;
 }
 .palette__img__image {
   width: 100%;
@@ -623,11 +622,10 @@ body {
   }
 }
 .enchantee__img {
-  width: 140%;
+  width: 100%;
   overflow: hidden;
   position: relative;
   height: 18em;
-  right: 4em;
 }
 .enchantee__img__image {
   width: 100%;
@@ -819,11 +817,10 @@ body {
   }
 }
 .delice__img {
-  width: 140%;
+  width: 100%;
   overflow: hidden;
   position: relative;
   height: 18em;
-  right: 4em;
 }
 .delice__img__image {
   width: 100%;
@@ -1012,11 +1009,10 @@ body {
   }
 }
 .francaise__img {
-  width: 140%;
+  width: 100%;
   overflow: hidden;
   position: relative;
   height: 18em;
-  right: 4em;
 }
 .francaise__img__image {
   width: 100%;
